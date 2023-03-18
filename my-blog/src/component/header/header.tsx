@@ -38,14 +38,13 @@ const Header = () => {
                         Тренировки
                     </div>
                 </div>
-                <div className="header-item"
-                onClick={() => {
-                    pushRouter('food')
-                }}
+                <div
+                    className="header-item"
+                    onClick={() => {
+                        pushRouter('food')
+                    }}
                 >
-                    <div
-                        className="header-item__text"
-                    >
+                    <div className="header-item__text">
                         Хочу кушать
                     </div>
                 </div>
