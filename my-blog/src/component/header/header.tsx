@@ -1,27 +1,27 @@
+import { Link } from 'react-router-dom'
 import './header.css'
 
 const Header = () => {
-    const pushRouter = (route: string) => {
+    const fPushRouter = (route: string) => {
         window.location.href = `/${route}`
     }
 
     return (
         <div className="header">
             <div className="header__content">
-                <div
-                    className="header-item"
-                    onClick={() => {
-                        pushRouter('weather')
-                    }}
-                >
-                    <div className="header-item__text">
+                <div>
+                    <Link
+                        to={`/weather`}
+                        className="header-item"
+                    >
                         Погода
-                    </div>
+                    </Link>
                 </div>
+
                 <div
                     className="header-item"
                     onClick={() => {
-                        pushRouter('news')
+                        fPushRouter('news')
                     }}
                 >
                     <div className="header-item__text">
@@ -31,7 +31,7 @@ const Header = () => {
                 <div
                     className="header-item"
                     onClick={() => {
-                        pushRouter('gym')
+                        fPushRouter('gym')
                     }}
                 >
                     <div className="header-item__text">
@@ -41,7 +41,7 @@ const Header = () => {
                 <div
                     className="header-item"
                     onClick={() => {
-                        pushRouter('food')
+                        fPushRouter('food')
                     }}
                 >
                     <div className="header-item__text">

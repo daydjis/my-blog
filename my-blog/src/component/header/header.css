@@ -17,6 +17,11 @@
     height: 100%;
 }
 
+.header-item {
+    text-decoration: none;
+    color: white;
+}
+
 .header-item__text {
     color: aliceblue;
     cursor: pointer;

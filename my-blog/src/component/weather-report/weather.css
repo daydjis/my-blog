@@ -1,0 +1,37 @@
+.wrapper {
+    max-width: 1200px;
+    margin: 100px auto;
+}
+
+.content-weather {
+    background-color: rgba(5, 5, 5, 0.985);
+    width: 400px;
+    padding: 20px;
+    align-items: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2%;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+h1 {
+    color: aliceblue;
+}
+
+.content-weather__description {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-item {
+    width: 80px;
+    size: 80px;
+}
+
+.footer-container {
+
+}
