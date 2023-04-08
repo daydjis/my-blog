@@ -14,17 +14,17 @@ const options = {
     },
 }
 
-export const fetchReport =
-    (name: string) => async (dispatch: AppDispatch) => {
-        if (name) {
-            options.params.q = name
-        }
-        try {
-            dispatch(weatherSlice.actions.weatherFetching())
-            const responce =
-                await axios.request<IWeatherReport>(options)
-            dispatch(weatherSlice.actions.weatherFetchingSuccess(responce.data))
-        } catch (error) {
-            dispatch(weatherSlice.actions.weatherFetchingError(error.message))
-        }
+export const fetchReport = (name: string) => async (dispatch: AppDispatch) => {
+    if (name) {
+        options.params.q = name
     }
+    try {
+        dispatch(weatherSlice.actions.weatherFetching())
+        const responce = await axios.request<IWeatherReport>(options)
+        dispatch(weatherSlice.actions.weatherFetchingSuccess(responce.data))
+    } catch (error) {
+        dispatch(weatherSlice.actions.weatherFetchingError(error.message))
+    }
+}
+
+

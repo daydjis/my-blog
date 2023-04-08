@@ -1,11 +1,7 @@
 import { Link } from 'react-router-dom'
-import './header.css'
+import './header.scss'
 
 const Header = () => {
-    const fPushRouter = (route: string) => {
-        window.location.href = `/${route}`
-    }
-
     return (
         <div className="header">
             <div className="header__content">
@@ -17,36 +13,29 @@ const Header = () => {
                         Погода
                     </Link>
                 </div>
-
-                <div
-                    className="header-item"
-                    onClick={() => {
-                        fPushRouter('news')
-                    }}
-                >
-                    <div className="header-item__text">
+                <div>
+                    <Link
+                        to={`/news`}
+                        className="header-item"
+                    >
                         Новости
-                    </div>
+                    </Link>
                 </div>
-                <div
-                    className="header-item"
-                    onClick={() => {
-                        fPushRouter('gym')
-                    }}
-                >
-                    <div className="header-item__text">
+                <div>
+                    <Link
+                        to={`/gym`}
+                        className="header-item"
+                    >
                         Тренировки
-                    </div>
+                    </Link>
                 </div>
-                <div
-                    className="header-item"
-                    onClick={() => {
-                        fPushRouter('food')
-                    }}
-                >
-                    <div className="header-item__text">
-                        Хочу кушать
-                    </div>
+                <div>
+                    <Link
+                        to={`/food`}
+                        className="header-item"
+                    >
+                        Еда
+                    </Link>
                 </div>
                 <div className="avatar">
                     <svg

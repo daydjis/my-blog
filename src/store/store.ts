@@ -2,10 +2,12 @@ import {
     combineReducers,
     configureStore,
 } from '@reduxjs/toolkit'
+import  gymSlice  from './reducer/gymSlice'
 import weatherSlice from './reducer/weatherSlice'
 
 const rootReducer = combineReducers({
     weatherSlice,
+    gymSlice
 })
 
 export const setupStore = () => {
