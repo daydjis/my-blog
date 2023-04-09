@@ -12,9 +12,13 @@ export const gymSlice = createSlice({
     reducers: {
         fAddNewDay(state, action) {
             state.day.push(action.payload)
+        },
+        fRemoveDay(state, actions) {
+            state.day = state.day.filter(day => day.id !== actions.payload)
         }
     }
 
 })
 export const { fAddNewDay } = gymSlice.actions
+export const { fRemoveDay } = gymSlice.actions
 export default gymSlice.reducer

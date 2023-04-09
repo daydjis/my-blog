@@ -2,6 +2,9 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks/hoook'
 import './gym.scss'
 import { fAddNewDay } from '../../store/reducer/gymSlice'
 import { useState } from 'react'
+import Menu from './el/menu-gym/menu-gym'
+import TableDone from './el/table-done/table-done'
+import TableStart from './el/table-open/table-start'
 const Gym = () => {
   const [modalStatus, setModalStatus] = useState(false)
 
@@ -27,10 +30,7 @@ const Gym = () => {
   }
 
   const choiceCurrentDay = (id: number) => {
-    console.log(id)
-
     mokinfo = mokinfo.filter((item) => item.id === id)
-    console.log(mokinfo)
 
     setMokinfo(mokinfo)
   }
@@ -87,9 +87,10 @@ const Gym = () => {
   ]
 
   const [mokInfo, setMokinfo] = useState([])
+
   const addNew = (title: string) => {
     if (title) {
-      dispatch(fAddNewDay({ id: menuItem[menuItem.length - 1].id + 1, name: title }))
+      dispatch(fAddNewDay({ id: menuItem[menuItem.length - 1] ? menuItem[menuItem.length - 1].id : 1, name: title }))
     }
   }
 
@@ -136,75 +137,14 @@ const Gym = () => {
       ) : (
         ''
       )}
-      <div className='menu'>
-        {menuItem.map((item) => (
-          <div
-            key={item.id}
-            className='menu__item'
-            onClick={() => {
-              choiceCurrentDay(item.id)
-            }}
-          >
-            {item.name}
-          </div>
-        ))}
-        <button
-          className='plus'
-          onClick={() => {
-            setModalStatus(true)
-          }}
-        >
-          {' '}
-          +{' '}
-        </button>
-      </div>
+      <Menu menuItem={menuItem} choiceCurrentDay={choiceCurrentDay} setModalStatus={setModalStatus} />
       <hr />
       <div className='table'>
         <div className='item'>
-          <h1 className='table-label'>Не начато</h1>
-          <div className='table-open'>
-            {mokInfo.map((item) => (
-              <div
-                key={item.text}
-                className='table__item'
-                draggable={true}
-                onDragStart={(e) => {
-                  onDragStart(item)
-                }}
-                onDragLeave={(e) => {}}
-                onDragEnd={(e) => {
-                  onDragEnd()
-                }}
-                onDragOver={(e) => {
-                  console.log('qwe')
-                }}
-                onDrop={(e) => {
-                  console.log(e)
-                }}
-              >
-                {item.text}
-              </div>
-            ))}
-          </div>
+          <TableStart mokInfo={mokInfo} onDragStart={onDragStart} onDragEnd={onDragEnd} />
         </div>
         <div className='item'>
-          <h1 className='table-label'>Завершено</h1>
-          <div className='table-done'>
-            {exerciseСompleted.map((item) => (
-              <div
-                key={item.text}
-                className='table__item'
-                draggable={true}
-                onDragStart={(e) => {}}
-                onDragLeave={(e) => {}}
-                onDragEnd={(e) => {}}
-                onDragOver={(e) => {}}
-                onDrop={(e) => {}}
-              >
-                {item.text}
-              </div>
-            ))}
-          </div>
+          <TableDone exerciseСompleted={exerciseСompleted} />
         </div>
       </div>
     </div>

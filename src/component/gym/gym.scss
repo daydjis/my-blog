@@ -132,6 +132,10 @@
     margin-top: 50px;
     margin-bottom: 20px;
     justify-content: space-evenly;
+        &-wrapper {
+            display: flex;
+            align-items: center;
+        }
         &__item {
             font-size: 16px;
             max-height: 120px;
@@ -156,5 +160,30 @@
                         color: gray;
                     }
                 
+        }
+}
+
+.minus {
+    font-size: 25px;
+    border: 2px solid rgb(114, 114, 114);
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(114, 114, 114);
+    border-radius: 50px;
+    transition: 1s;
+    &:hover {
+        transition: 0.5s;
+        background-color: rgb(255, 255, 255);
+        color: rgb(111, 110, 110);
+    }
+        &::before {
+            scale: 1;
+        }
+        &:active {
+            scale: 0.75;
+            color: gray;
         }
 }
